@@ -1,0 +1,28 @@
+{
+  "name": "md2phomemo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "print Markdown files on a Phomemo printer",
+  "license": "MIT",
+  "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",
+  "homepage": "https://github.com/pmuellr/md2phomemo",
+  "bin": {
+    "md2phomemo": "md2phomemo.mjs"
+  },
+  "scripts": {
+    "start": "node ./md2phomemo.mjs",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmuellr/md2phomemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pmuellr/md2phomemo/issues"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0",
+    "meow": "^13.2.0",
+    "noble": "^1.9.1"
+  }
+}

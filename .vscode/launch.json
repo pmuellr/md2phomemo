@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "npm test",
+            "name": "test all",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "eslp.mjs",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/eslp.mjs",
+            "args": ["--config", "~/Box/elastic-cloud/eslp.toml"]
+        },
+        {
+            "type": "node",
+            "name": "test current file",
+            "program": "${relativeFile}",
+            "args": [ 
+                "--test",
+            ],
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outputCapture": "std",
+            "env": {
+                "COLORS": "1"
+            },
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+        },
+        {
+            "type": "node",
+            "name": "run current file",
+            "program": "${relativeFile}",
+            "args": ["--help"],
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outputCapture": "std",
+            "env": {
+                "COLORS": "1"
+            },
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+        },
+   ]
+}
