@@ -1,9 +1,9 @@
 // only types, used for validation in vscode
 
-export type { Val, Err, ValOrErr } from './val-or-error'
+export type { Val, Err, ValOrErr } from './val-or-error.ts'
 
 export interface Cli {
-  params:     string[]
+  iFile:      string
   printer?:   string
   list:       boolean
   watch:      boolean
