@@ -13,12 +13,12 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "eslp.mjs",
+            "name": "md2phomemo.mjs",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/eslp.mjs",
-            "args": ["--config", "~/Box/elastic-cloud/eslp.toml"]
+            "program": "${workspaceFolder}/md2phomemo.mjs",
+            "args": ["test.md"]
         },
         {
             "type": "node",

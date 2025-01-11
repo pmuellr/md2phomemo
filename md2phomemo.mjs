@@ -27,6 +27,16 @@ async function main() {
     log.exit('expecting an input markdown file as a parameter')
   }
 
+  await processFile(iFile)
+  if (watch) {
+    await processWatch(iFile)
+  }
+
+  process.exit()
+}
+
+/** @type { (iFile: string) => Promise<void> } */
+async function processFile(iFile) {
   const iFileBase = path.basename(iFile)
   const htmlFile = `${iFileBase}.html`
   const pngFileOrig = `${iFileBase}.orig.png`
@@ -46,7 +56,7 @@ async function main() {
   await fs.writeFile(htmlFile, htmlVal.val)
   log(`generated: ${htmlFile}`)
 
-  const pngVal = await html2png(htmlVal.val, pngFileOrig)
+  const pngVal = await html2png(htmlFile, pngFileOrig)
   if (!isVal(pngVal)) {
     return log.exit(pngVal.err.message)
   }
@@ -57,7 +67,18 @@ async function main() {
   }
 
   log(`generated: ${pngFileFinal}`)
-  process.exit()
+}
+
+/** @type { (iFile: string) => Promise<void> } */
+async function processWatch(iFile) {
+  log()
+  log(`watching on file change: ${iFile}`)
+  const watcher = fs.watch(iFile);
+  for await (const event of watcher) {
+    log()
+    log(`file changed: ${iFile}`)
+    await processFile(iFile)
+  }
 }
 
 /** @type { () => Promise<string> } */
