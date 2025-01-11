@@ -34,16 +34,20 @@ or run via
 usage
 ================================================================================
 
-Note that you will need to be running Chrome with remote debugging enabled.
-To do that, quit your current Chrome app, and relaunch it with:
-
-    open -a "Google Chrome" --args --remote-debugging-port=9222
-
-command-line
---------------------------------------------------------------------------------
-
     md2phomemo [options] markdown-file
-    
+
+Will produce three files, in the same directory as `markdown-file`:
+
+- `${markdown-file}.html`
+- `${markdown-file}.orig.png`
+- `${markdown-file}.png`
+
+The `.html` file contains the HTML rendered from the Markdown.
+The `.orig.png` file is the rendered HTML captured as a PNG image.
+The `.png` file is the PNG "fixed" for printing on the Phomemo printer.
+
+The final image will only be printed if the `--printer` option is used.
+
 options:
 
 | short | long                 | description
@@ -53,7 +57,6 @@ options:
 | `-v`  | `--version`          | display version
 | `-p`  | `--printer <name>`   | name of the printer
 | `-l`  | `--list`             | list available Bluetooth devices
-| `-o`  | `--output <file>`    | generates the image to print as a png
 | `-w`  | `--watch`            | regenerates the image when input changes
 
 If there is a printer named (roughly) `m02`, it will be used if no
@@ -62,14 +65,23 @@ If there is a printer named (roughly) `m02`, it will be used if no
 If you don't know the name of the printer, use the `--list` option to
 display the available devices by name.
 
-If `--output` is not provided, the default file will be created in the 
-current directory, and have the same name as `markdown-file` parameter,
-with `.png` appended.  If `--output` is provided, but doesn't end in `.png`,
-that extension will be added to the name.
-
 If `--watch` is provided, the generated image will not be printed, and
 the program will pause waiting for the `markdown-file` to change.  When
 changed, it will regenerate the image.
+
+
+references
+================================================================================
+
+- https://sharp.pixelplumbing.com/ - Sharp - 
+  image manipulation
+- https://pptr.dev/api - Puppeteer - 
+  generate a `.png` file from a `.html` file
+- https://github.com/abandonware/noble - noble - 
+  Bluetooth connectivity to the printer
+- https://github.com/vrk/cli-phomemo-printer - node.js example
+- https://github.com/vivier/phomemo-tools/blob/master/README.md#3-protocol-for-m02 -
+  printer protocol
 
 
 change log

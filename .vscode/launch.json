@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "command": "npm test",
             "name": "test all",
@@ -13,12 +14,22 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "md2phomemo.mjs",
+            "name": "md2phomemo sample/test.md",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/md2phomemo.mjs",
-            "args": ["test.md"]
+            "args": ["sample/test.md"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "md2phomemo -p M02X sample/test.md",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/md2phomemo.mjs",
+            "args": ["sample/test.md", "-p", "M02X"]
         },
         {
             "type": "node",

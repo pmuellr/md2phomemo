@@ -11,3 +11,9 @@ export interface Cli {
   version:    boolean
   debug:      boolean
 }
+
+export interface Deferred {
+  promise: Promise<any>;
+  resolve: (val: any) => void;
+  reject: (val: Error) => void;
+}

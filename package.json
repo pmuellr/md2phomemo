@@ -22,9 +22,9 @@
     "url": "https://github.com/pmuellr/md2phomemo/issues"
   },
   "dependencies": {
+    "@abandonware/noble": "^1.9.2-25",
     "markdown-it": "^14.1.0",
     "meow": "^13.2.0",
-    "noble": "^1.9.1",
     "puppeteer": "^24.0.0",
     "sharp": "^0.33.5"
   }
