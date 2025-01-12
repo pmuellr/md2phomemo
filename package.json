@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "node ./md2phomemo.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "format-bin": "hexdump -C sample/test.md.bin > sample/test.md.bin.txt"
   },
   "repository": {
     "type": "git",

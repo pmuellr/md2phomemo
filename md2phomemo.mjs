@@ -24,7 +24,6 @@ async function main() {
   if (help) { console.log(await getHelp()); process.exit(1) }
   if (version) { console.log(pkg.version); process.exit(1) }
 
-
   log.setDebug(!!debug)
 
   if (list) {
@@ -43,7 +42,11 @@ async function main() {
 
   const { data, height, width } = processVal.val
   if (printer) {
-    await print(printer, data, height, width)
+    const binFile = `${iFile}.bin`
+    const printVal = await eValAsync(async () => await print(printer, data, height, width, binFile))
+    if (!isVal(printVal)) {
+      return log.exit(printVal.err.message)
+    }
     return process.exit()
   }
 
