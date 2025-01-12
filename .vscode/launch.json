@@ -19,7 +19,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/md2phomemo.mjs",
-            "args": ["sample/test.md"]
+            "args": ["sample/test.md", "--debug"]
         },
         {
             "type": "node",
@@ -29,7 +29,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/md2phomemo.mjs",
-            "args": ["sample/test.md", "-p", "M02X"]
+            "args": ["sample/test.md", "--debug", "--printer", "M02X"]
         },
         {
             "type": "node",
