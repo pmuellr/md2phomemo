@@ -87,6 +87,10 @@ references
 change log
 ================================================================================
 
+#### 1.0.1 - 2025-01-13
+
+- fixed a number of small issues
+
 #### 1.0.0 - 2025-01-12
 
 - initial working version

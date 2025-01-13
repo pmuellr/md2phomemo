@@ -1,6 +1,6 @@
 {
   "name": "md2phomemo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "private": true,
   "description": "print Markdown files on a Phomemo printer",
